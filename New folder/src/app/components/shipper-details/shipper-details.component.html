@@ -1,0 +1,28 @@
+<label>ShipperName Dropdown :</label>&nbsp;
+
+<select [(ngModel)]="selectedname" (change)="onChangeName($event)">
+    <option [value]="option.shipperId" *ngFor="let  option of shippers">{{option.shipperName}}</option>
+</select>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Shipment Id</th>
+        <th scope="col">Shipper Name</th>
+        <th scope="col">Carrier Name</th>
+        <th scope="col">Shipment Description</th>
+        <th scope="col">Shipment Weight</th>
+        <th scope="col">Shipment Rate Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of shipmentDetails;">
+            <th scope="row">{{item.shipmentId}}</th>
+            <td>{{item.shipperName}}</td>
+            <th>{{item.carrierName}}</th>
+            <td>{{item.shipmentDescription}}</td>
+            <th>{{item.shipmentWeight}}</th>
+            <td>{{item.shipmentRateDescription}}</td>
+        </tr>
+    </tbody>
+</table>
