@@ -17,33 +17,13 @@ export class RandomQuoteComponent implements OnInit{
   ngOnInit(): void {
     this.getRandomQuots();
   }
-
-  // getRandomQuots(){
-  //   this.quotableService.getRandomQuote().subscribe((res:any)=>{
-  //     debugger
-  //     this.quotes = res;
-  //     this.author = res.author;
-  //     this.content = res.content;
-  //   })
-  // }
   getRandomQuots(): void {
     this.quotableService.getRandomQuote().subscribe(
       data => {
-        debugger
-        this.quotes = data;
         this.author = data.author;
         this.content = data.content;
-       // this.quotes =  Json(data);
-
-        console.log(this.quotes); // <-- here instead
       },
     );
-  }
-  getRandomQuotss(){
-    this.quotableService.getRandomQuote().pipe(map((data:any)=> data),
-    catchError(error=> {
-      throw ('its error')
-    }))
   }
 
 }
