@@ -18,10 +18,7 @@ export class EinsteinQuotesComponent implements OnInit{
   getQuoteByAuthor(){
     this.quotableService.getQuoteByAuthor().subscribe((res:any)=>{
       debugger
-      if(res){
-        debugger
-      }
-      this.quotes = res;
+      this.quotes = res.results;
     })
   }
 }

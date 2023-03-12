@@ -9,6 +9,8 @@ import { QuotableService } from 'src/app/services/quotable.service';
 })
 export class RandomQuoteComponent implements OnInit{
   quotes:any[]=[];
+  author: any;
+  content: any;
   constructor(private quotableService:QuotableService){
 
   }
@@ -20,16 +22,21 @@ export class RandomQuoteComponent implements OnInit{
   //   this.quotableService.getRandomQuote().subscribe((res:any)=>{
   //     debugger
   //     this.quotes = res;
+  //     this.author = res.author;
+  //     this.content = res.content;
   //   })
   // }
   getRandomQuots(): void {
     this.quotableService.getRandomQuote().subscribe(
       data => {
+        debugger
         this.quotes = data;
+        this.author = data.author;
+        this.content = data.content;
+       // this.quotes =  Json(data);
+
         console.log(this.quotes); // <-- here instead
       },
-      err => console.error(err),
-      () => console.log('Wiki Items Geladen')
     );
   }
   getRandomQuotss(){
